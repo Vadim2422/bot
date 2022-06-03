@@ -1,21 +1,7 @@
-from email import message
 import API
 from vkbottle.bot import Bot, Message
-a
 post=[]
 bot = Bot(token=API.API)
-@bot.on.chat_message(text ="start")
-async def message_handler(message: Message):
-    await message.answer("кабан")
-
-def read_file():
-    list=[]
-    f=open('base.txt','r')
-    for line in f:
-        list.append(line)
-    print(list)
-    f.close()
-    return list
 
 
 @bot.on.message(text="Добавить на пост <item>")
@@ -32,21 +18,21 @@ async def message_handler(message: Message, item=None):
 async def message_handler(message: Message):
     if len(post):
         if len(post)==1:
-            str="Пост держит:\n"
+            str="Пост пидора держит:\n"
         else:
-            str="Пост держат:\n"
+            str="Пост пидора держат:\n"
         for line in post:
             str+=line+"\n"
         await message.answer(str)
     else:
         await message.answer("На посту никого")
 
-@bot.on.message(text="Удалить с поста <item>")
+@bot.on.message(text="Убрать с поста <item>")
 async def message_handler(message: Message,item=None):
     if item is not None:
         if post.count(item):
             post.remove(item)
-            await message.answer("Пост сдал "+item)
+            await message.answer("Пост пидора сдал "+item)
         else:
             await message.answer(item+" и так не пидор")
 
@@ -54,6 +40,6 @@ async def message_handler(message: Message,item=None):
 
 @bot.on.message(text="/help")
 async def message_handler(message: Message):
-    await message.answer("1) Кто на посту\n2) Добавить на пост\n3) Удалить с поста\n(Без нумерации)")
+    await message.answer("1) Кто на посту @...\n2) Добавить на пост @...\n3) Убрать с поста @...\n(Без нумерации)")
 
 bot.run_forever()
