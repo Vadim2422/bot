@@ -1,7 +1,7 @@
 from email import message
 import API
 from vkbottle.bot import Bot, Message
-
+a
 post=[]
 bot = Bot(token=API.API)
 @bot.on.chat_message(text ="start")
