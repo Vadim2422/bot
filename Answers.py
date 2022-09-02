@@ -74,4 +74,4 @@ class Answer:
             self.mes.send_text(self.peer_id, del_user[0]['first_name'] + " @" + user + " и так не пидор")
 
     def help(self):
-        self.mes.send_text(self.peer_id, "1) Кто на посту\n2) В наряд\n3) В отставку")
+        self.mes.send_text(self.peer_id, "1) Кто на посту\n2) В наряд @..\n3) В отставку @..")

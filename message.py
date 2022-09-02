@@ -19,21 +19,5 @@ class Message:
             "random_id": 0
         })
 
-    def send_sticker(self, peer_id, sticker):
-        return self.bot.session.method("messages.sendSticker", {
-            "peer_id": peer_id,
-            "random_id": 0,
-            "sticker_id": sticker
-
-        })
-
-    def delete_message(self, id):
-        str = self.bot.session.method("messages.delete", {
-            "message_ids": f"{id}",
-            "delete_for_all": 1
-
-        })
-        print(str)
-
     def get_members(self, peer_id):
         return self.bot.session.method("messages.getConversationMembers", {"peer_id": peer_id})

@@ -33,21 +33,9 @@ def write_json(data: dict, peer_id: int):
         print("error 2")
 
 
-def write_file(path, data):
-    try:
-        with open(path, 'w') as f:
-            print(*data, file=f, sep=", ")
-    except (FileNotFoundError, FileExistsError):
-        print("error 2")
 
 
-def read_file(path):
-    try:
-        with open(path, 'r') as f:
-            line = f.readline()
-            return line
-    except (FileNotFoundError, FileExistsError):
-        print("error 2")
+
 
 
 
