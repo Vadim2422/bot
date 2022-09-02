@@ -17,8 +17,6 @@ for event in app:
     if event.type == VkBotEventType.MESSAGE_NEW:
         if event.from_chat:
             peer_id = event.object['message']['peer_id']
-            if peer_id != 2000000004:
-                break
             msg = event.object['message']['text'].lower()
             answer = Answer(mes, peer_id)
             if msg in ["кто на посту", "кто на посту?"]:
