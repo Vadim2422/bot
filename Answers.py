@@ -75,3 +75,11 @@ class Answer:
 
     def help(self):
         self.mes.send_text(self.peer_id, "1) Кто на посту\n2) В наряд @..\n3) В отставку @..")
+
+
+def write_file(path, data):
+    try:
+        with open(path, 'w') as f:
+            print(*data, file=f, sep=", ")
+    except (FileNotFoundError, FileExistsError):
+        print("error 2")
