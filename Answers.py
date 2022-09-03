@@ -20,8 +20,7 @@ class Answer:
             else:
                 answer = "Пост пидора держат:\n"
             for line in data["Pidory"]:
-                account = self.user.get_data(line)
-                answer += "Пидор " + account[0]['first_name'] + " @" + str(line) + '\n'
+                answer += "Пидор " + " @" + str(line) + '\n'
             self.mes.send_text(self.peer_id, answer)
 
         else:
@@ -47,7 +46,7 @@ class Answer:
             data = read_json(self.peer_id)
             user = self.user.get_id_or_domain(add_user)
             if data["Pidory"].count(user):
-                self.mes.send_text(self.peer_id, "Пидор " + add_user[0]['first_name'] + " @" + user + " уже на посту")
+                self.mes.send_text(self.peer_id, "Пидор " + " @" + user + " уже на посту")
             else:
                 data["Pidory"].append(user)
                 write_json(data, self.peer_id)
@@ -71,7 +70,7 @@ class Answer:
             else:
                 self.mes.send_text(self.peer_id, f"Куда мы лезем? @{user}")
         else:
-            self.mes.send_text(self.peer_id, del_user[0]['first_name'] + " @" + user + " и так не пидор")
+            self.mes.send_text(self.peer_id, "@" + user + " и так не пидор")
 
     def help(self):
         self.mes.send_text(self.peer_id, "1) Кто на посту\n2) В наряд @..\n3) В отставку @..")

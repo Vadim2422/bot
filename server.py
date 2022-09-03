@@ -10,6 +10,11 @@ def home():
     return "Монитор"
 
 
+@app.route('/')
+def head():
+    return "head"
+
+
 def run():
     uvicorn.run('server:app', host='0.0.0.0', port=8080)
 
