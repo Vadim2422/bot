@@ -5,9 +5,14 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.head('/')
+@app.get('/')
 def home():
     return "Монитор"
+
+
+@app.head('/')
+def head():
+    return "head"
 
 
 def run():
