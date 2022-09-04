@@ -10,10 +10,9 @@ load_dotenv()
 
 
 bot = Bot(os.getenv('api_main'))
-app = bot.longpool.listen()
 mes = Message(bot)
 keep_alive()
-for event in app:
+for event in bot.longpool.listen():
     if event.type == VkBotEventType.MESSAGE_NEW:
         if event.from_chat:
             peer_id = event.object['message']['peer_id']
